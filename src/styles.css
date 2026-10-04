@@ -1,0 +1,47 @@
+:root { --bg:#04060d; --panel:#0a1222cc; --line:#1c2f55; --cyan:#3ad6ff; --gold:#ff9a2a; --txt:#d8e6ff; --dim:#7d93b8; }
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; background:var(--bg); color:var(--txt); font-family:Inter,system-ui,Segoe UI,Roboto,sans-serif; }
+header { display:flex; align-items:center; gap:12px; padding:10px 16px; border-bottom:1px solid var(--line); background:linear-gradient(90deg,#060b18,#0a1a33); position:sticky; top:0; z-index:5; }
+header h1 { font-size:18px; margin:0; letter-spacing:.5px; }
+header small { color:var(--dim); }
+header .sp { flex:1; }
+button { background:#10254a; color:var(--txt); border:1px solid var(--line); border-radius:8px; padding:6px 10px; cursor:pointer; font-size:12px; }
+button:hover { border-color:var(--cyan); }
+button.on { border-color:var(--gold); color:#ffd9a0; }
+main { display:grid; grid-template-columns:300px 1fr 320px; gap:10px; padding:10px; min-height:calc(100vh - 120px); }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:10px; backdrop-filter:blur(6px); }
+.panel h2 { font-size:13px; margin:4px 0 8px; text-transform:uppercase; letter-spacing:.8px; color:var(--cyan); }
+.panel h3 { font-size:12px; margin:10px 0 6px; color:var(--gold); }
+#stage { position:relative; min-height:520px; overflow:hidden; }
+#brain-canvas { width:100%; height:560px; display:block; border-radius:10px; background:radial-gradient(ellipse at 50% 40%, #0a1a3a 0%, #04060d 70%); cursor:grab; }
+#stage .hud { position:absolute; top:8px; left:8px; display:flex; gap:6px; flex-wrap:wrap; }
+#stage .hint { position:absolute; bottom:8px; left:10px; right:10px; color:var(--dim); font-size:11px; display:flex; justify-content:space-between; gap:8px; }
+#region-info { color:#ffe1b3; font-size:12px; min-height:18px; }
+.chip { display:inline-flex; align-items:center; gap:6px; margin:2px; font-size:11px; }
+.chip i { width:10px; height:10px; border-radius:50%; display:inline-block; }
+#regions { max-height:150px; overflow:auto; }
+.bar-row { display:grid; grid-template-columns:90px 1fr 34px; gap:6px; align-items:center; font-size:11px; margin:2px 0; }
+.bar { height:6px; background:#12233f; border-radius:4px; overflow:hidden; }
+.bar .fill { height:100%; background:linear-gradient(90deg,var(--cyan),var(--gold)); }
+.obs { display:grid; grid-template-columns:auto 1fr; gap:3px 8px; font-size:12px; }
+.obs dt { color:var(--dim); } .obs dd { margin:0; word-break:break-word; }
+#event-log { max-height:220px; overflow:auto; font-size:11px; }
+.log-line { padding:2px 4px; border-bottom:1px dashed #152845; }
+.log-line.err { color:#ff8f9a; } .log-line.ok { color:#9fe8b8; } .log-line.sys { color:var(--dim); }
+#chat { display:flex; flex-direction:column; gap:8px; max-height:300px; overflow:auto; margin:8px 0; }
+.msg { background:#0d1c38; border:1px solid var(--line); border-radius:10px; padding:6px 8px; font-size:13px; }
+.msg b { font-size:11px; color:var(--cyan); text-transform:uppercase; }
+.msg p { margin:4px 0; white-space:pre-wrap; }
+.msg.dim { opacity:.65; font-style:italic; }
+.composer { display:flex; gap:6px; }
+.composer input { flex:1; background:#060d1d; border:1px solid var(--line); border-radius:8px; color:var(--txt); padding:8px; }
+.demos { display:flex; flex-wrap:wrap; gap:4px; margin-top:6px; }
+.cand { display:grid; grid-template-columns:110px 1fr auto; gap:6px; font-size:11px; padding:4px; border-bottom:1px solid #13264a; cursor:pointer; }
+.cand:hover { background:#10254a; }
+.cand em { color:var(--gold); font-style:normal; }
+#candidates { max-height:220px; overflow:auto; }
+#cand-filter { width:100%; background:#060d1d; border:1px solid var(--line); color:var(--txt); border-radius:8px; padding:6px; margin-bottom:6px; }
+#android-confirm { border:1px solid var(--gold); border-radius:10px; padding:8px; margin-top:8px; background:#1a1005; }
+pre#audit { white-space:pre-wrap; font-size:11px; color:var(--dim); max-height:120px; overflow:auto; }
+footer { padding:10px 16px; color:var(--dim); font-size:11px; border-top:1px solid var(--line); display:flex; gap:10px; flex-wrap:wrap; }
+@media (max-width:900px) { main { grid-template-columns:1fr; } #brain-canvas { height:420px; } }

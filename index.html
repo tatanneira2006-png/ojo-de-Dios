@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CEREBRO — Núcleo + Cerebro 3D Vivo</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+  <meta name="description" content="CEREBRO: sistema artificial modular con visualización 3D interactiva. Núcleo estable, memoria, estado interno, agentes y 100 candidatos." />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+<header>
+  <h1>🧠 CEREBRO <small>v0.1 · núcleo base + 3D vivo</small></h1>
+  <div class="sp"></div>
+  <button id="vivo">💓 Cerebro Vivo: OFF</button>
+  <button id="auto-cam">🎥 auto: on</button>
+  <button id="speak">🔊 leer</button>
+  <button id="listen">🎙️ hablar</button>
+</header>
+<main>
+  <section class="panel">
+    <h2>❤️ Estado interno</h2>
+    <div id="state-bars"></div>
+    <h3>🧬 Memoria</h3>
+    <div id="mem-snap" style="font-size:11px;color:#9fe8b8"></div>
+    <h3>🛡️ Seguridad / trazabilidad</h3>
+    <pre id="audit"></pre>
+    <h3>📜 Eventos reales</h3>
+    <div id="event-log"></div>
+  </section>
+
+  <section class="panel" id="stage">
+    <canvas id="brain-canvas"></canvas>
+    <div class="hud">
+      <button data-view="frontal">frontal</button>
+      <button data-view="lateral">lateral</button>
+      <button data-view="superior">superior</button>
+      <button data-view="auto">auto</button>
+      <button data-view="libre">libre</button>
+    </div>
+    <div class="hint"><span>arrastrar: rotar · rueda: zoom · shift+arrastrar: pan · doble-clic nodo: seleccionar región</span><span id="region-info">—</span></div>
+    <h2>🌌 Regiones funcionales (no anatomía exacta)</h2>
+    <div id="regions"></div>
+    <h2>💬 Entrada al núcleo</h2>
+    <div id="chat"></div>
+    <div class="composer"><input id="prompt" placeholder="Escribe un objetivo: investiga, planifica, calcula, recuerda…" /><button id="send">enviar</button></div>
+    <div class="demos">
+      <button data-demo="investiga qué es memoria episódica">🔍 investigar</button>
+      <button data-demo="planifica una app de hábitos en 5 pasos">🎯 planificar</button>
+      <button data-demo="calcula 24 * 7 + 10">🧮 calcular</button>
+      <button data-demo="recuerda que prefiero respuestas claras y trazables">🧬 recordar</button>
+      <button data-demo="abre WhatsApp en Android">📱 android</button>
+    </div>
+    <div id="android-confirm" hidden><p></p><button class="ok">confirmar ✓</button> <button class="no">rechazar</button></div>
+  </section>
+
+  <section class="panel">
+    <h2>🔭 Observación</h2>
+    <dl class="obs">
+      <dt>modelo</dt><dd id="o-model">—</dd>
+      <dt>agente</dt><dd id="o-agent">—</dd>
+      <dt>herramienta</dt><dd id="o-tool">—</dd>
+      <dt>objetivo</dt><dd id="o-goal">—</dd>
+      <dt>tarea</dt><dd id="o-task">—</dd>
+      <dt>proceso</dt><dd id="o-process">—</dd>
+      <dt>confianza</dt><dd id="o-conf">—</dd>
+      <dt>energía</dt><dd id="o-energy">—</dd>
+      <dt>modo</dt><dd id="o-mode">—</dd>
+    </dl>
+    <h2>🧩 100 candidatos <small id="cand-count"></small></h2>
+    <input id="cand-filter" placeholder="filtrar por categoría o nombre… (cognicion, agentes, voz…)" />
+    <div id="candidates"></div>
+    <h3>🧭 Capas</h3>
+    <div style="font-size:11px;color:#7d93b8">1 🧠 cerebro · 2 🤖 agentes · 3 🧠 modelos · 4 🧬 memoria · 5 🛠️ herramientas · 6 📱 dispositivos · 7 🛡️ seguridad · 8 🌌 3D (solo visualiza)</div>
+  </section>
+</main>
+<footer><span>Prioridad: ESTABILIDAD → ARQUITECTURA → SEGURIDAD → FUNCIONALIDAD → INTEGRACIONES → APRENDIZAJE → EVOLUCIÓN</span><span>·</span><span>100 tecnologías como candidatas pendientes — no se instalan automáticamente · respetar licencias</span></footer>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
