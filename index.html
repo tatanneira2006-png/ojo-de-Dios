@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ojo de Dios — Tejedor interactivo</title>
+<meta name="description" content="Crea tu propio Ojo de Dios: tejedor interactivo con paletas huicholes, animación y descarga en PNG." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="kicker">🧶 Artesanía huichol · Tejedor interactivo</p>
+    <h1>Ojo de Dios</h1>
+    <p class="subtitle">Mueve los hilos, cambia los colores y teje tu propio <em>Tsikuri</em>. Todo funciona en tu navegador, sin instalar nada.</p>
+    <div class="hero-actions">
+      <button id="btn-random" class="btn primary" type="button">🎲 Crear uno aleatorio</button>
+      <button id="btn-download" class="btn" type="button">⬇ Descargar PNG</button>
+    </div>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="canvas-card" aria-label="Lienzo del Ojo de Dios">
+    <canvas id="ojo" width="900" height="900" role="img" aria-label="Ojo de Dios tejido"></canvas>
+    <p class="hint" id="status">Listo para tejer ✨</p>
+  </section>
+
+  <aside class="panel" aria-label="Controles">
+    <h2>🎛️ Controles</h2>
+
+    <label class="field">
+      <span>Número de palos <strong id="v-sticks">4</strong></span>
+      <input id="in-sticks" type="range" min="2" max="8" step="1" value="4" />
+    </label>
+
+    <label class="field">
+      <span>Vueltas de hilo <strong id="v-turns">48</strong></span>
+      <input id="in-turns" type="range" min="12" max="120" step="1" value="48" />
+    </label>
+
+    <label class="field">
+      <span>Grosor del hilo <strong id="v-width">7</strong></span>
+      <input id="in-width" type="range" min="2" max="16" step="1" value="7" />
+    </label>
+
+    <label class="field">
+      <span>Apertura del centro <strong id="v-hole">14</strong></span>
+      <input id="in-hole" type="range" min="4" max="60" step="1" value="14" />
+    </label>
+
+    <h3>🎨 Paleta</h3>
+    <div class="palettes" id="palettes"></div>
+
+    <div class="row">
+      <label class="check"><input id="in-spin" type="checkbox" /> Girar lentamente</label>
+      <label class="check"><input id="in-glow" type="checkbox" checked /> Resplandor</label>
+      <label class="check"><input id="in-dark" type="checkbox" checked /> Fondo oscuro</label>
+    </div>
+
+    <label class="field">
+      <span>Fondo del lienzo</span>
+      <select id="in-bg">
+        <option value="night">Noche (azul profundo)</option>
+        <option value="clay">Barro (terracota)</option>
+        <option value="sand">Arena (claro)</option>
+        <option value="forest">Selva (verde)</option>
+      </select>
+    </label>
+
+    <h3>✨ Presets</h3>
+    <div class="presets" id="presets"></div>
+
+    <button id="btn-weave" class="btn primary wide" type="button">🧵 Tejer animado</button>
+    <p class="note">El tejido se dibuja vuelta por vuelta, como en la vida real.</p>
+  </aside>
+</main>
+
+<section class="info">
+  <div class="info-card">
+    <h2>¿Qué es un Ojo de Dios?</h2>
+    <p>El <strong>Ojo de Dios</strong> (<em>Tsikuri</em> en wixárika) es una artesanía del pueblo huichol de México: dos o más palos cruzados que se envuelven con hilos de colores formando rombos concéntricos. Se regala como protección y se cuelga para cuidar a quienes están bajo su mirada.</p>
+  </div>
+  <div class="info-card">
+    <h2>¿Cómo se "teje" aquí?</h2>
+    <ol>
+      <li>Cada <strong>vuelta</strong> es un rombo que crece desde el centro.</li>
+      <li>Los colores avanzan en el orden de la paleta elegida.</li>
+      <li>Más palos = más puntas en la estrella.</li>
+    </ol>
+  </div>
+  <div class="info-card">
+    <h2>📸 Guarda tu obra</h2>
+    <p>Pulsa <strong>Descargar PNG</strong> y obtendrás una imagen cuadrada de alta resolución, lista para compartir o imprimir.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Hecho con hilos y canvas · <strong>Ojo de Dios</strong> · Funciona sin internet tras la primera carga</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
